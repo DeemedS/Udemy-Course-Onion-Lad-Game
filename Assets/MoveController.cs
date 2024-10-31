@@ -62,9 +62,11 @@ public class MoveController : MonoBehaviour
 
     private void FlipController() 
     {
-        if (rb.linearVelocity.x < 0 && isFacingRight)
+        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+        if (mousePos.x  < transform.position.x && isFacingRight)
             Flip();
-        else if (rb.linearVelocity.x > 0 && !isFacingRight)
+        else if (mousePos.x > transform.position.x && !isFacingRight)
             Flip();
     }
 
